@@ -1,0 +1,82 @@
+#include<stdio.h>
+int main(void)
+{
+    int number1[5],number2[5];
+    int a,b,c,d,e,f,g,h,j,k,o,z,x,y,w;
+    b=1;
+    scanf("%d",&a);
+    while(b<=a)
+    {
+        scanf("%d %d",&c,&d);
+        g=0;
+        h=0;
+        x=c;
+        y=d;
+        while(g<=4)
+        {
+            number1[g]=c%10;
+            c=c/10;
+            g++;
+        }
+        while(h<=4)
+        {
+            number2[h]=d%10;
+            d=d/10;
+            h++;
+        }
+        e=number1[0]+number1[1]+number1[2]+number1[3]+number1[4];
+        f=number2[0]+number2[1]+number2[2]+number2[3]+number2[4];
+        j=1+e%6;
+        k=1+f%6;
+        z=j+k;
+        o=z;
+        if((z==7)||(z==11))
+            printf("success!\n");
+        else if((z==2)||(z==3)||(z==12))
+            printf("fail!\n");
+        else
+        {
+            w=1;
+            while(1)
+            {
+                c=x;
+                d=y;
+                c=c+w;
+                d=d+w;
+                g=0;
+                h=0;
+                while(g<=4)
+                {
+                    number1[g]=c%10;
+                    c=c/10;
+                    g++;
+                }
+                while(h<=4)
+                {
+                    number2[h]=d%10;
+                    d=d/10;
+                    h++;
+                }
+                e=number1[0]+number1[1]+number1[2]+number1[3]+number1[4];
+                f=number2[0]+number2[1]+number2[2]+number2[3]+number2[4];
+                j=1+e%6;
+                k=1+f%6;
+                z=j+k;
+                if(z==7)
+                {
+                    printf("fail!\n");
+                    break;
+                }
+                if(z==o)
+                {
+                    printf("success!\n");
+                    break;
+                }
+                w++;
+            }
+
+        }
+        b++;
+    }
+    return 0;
+}
